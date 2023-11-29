@@ -1,12 +1,15 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
 
 using System.Text;
 
 [MemoryDiagnoser]
+//[SimpleJob(RuntimeMoniker.Net60)]
+[SimpleJob(RuntimeMoniker.Net80)]
 [RankColumn]
 public class MemoriaBenchmarkString
 {
-	[Params(1000, 10000)]
+	[Params(10000)]
 	public int numero_de_itens;
 	[Benchmark]
 	public string ConcatenandoStringsCom_StringBuilder()
